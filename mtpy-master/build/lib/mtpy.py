@@ -26,7 +26,7 @@ import ctypes as ct
 import os
 import errno
 
-mtp = ct.cdll.LoadLibrary("libmtp.so.9")
+mtp = ct.cdll.LoadLibrary("libmtp.9.dylib")
 mtp.LIBMTP_Init()
 mtp.LIBMTP_Release_Device.restype = None
 mtp.LIBMTP_Clear_Errorstack.restype = None
@@ -51,7 +51,7 @@ mtp.LIBMTP_Create_Folder.restype = ct.c_uint32
 mtp.LIBMTP_destroy_track_t.restype = None
 mtp.LIBMTP_destroy_playlist_t.restype = None
 mtp.LIBMTP_destroy_album_t.restype = None
-libc = ct.cdll.LoadLibrary("libc.so.6")
+libc = ct.cdll.LoadLibrary("libc.dylib")
 libc.malloc.restype = ct.c_void_p
 libc.free.argtypes = [ct.c_void_p]
 libc.free.restype = None
